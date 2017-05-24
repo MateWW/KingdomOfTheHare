@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AddCarrotService } from './add-carrot.service';
+
 @Component({
   selector: 'add-carrot-form',
   template: `
@@ -30,13 +32,13 @@ export class AddCarrotFormComponent implements OnInit {
 
   private valuesOfButtons:[Number] = [1,2,5,10,20,50];
 
-  constructor() { }
+  constructor(private addCarrotService:AddCarrotService) { }
 
   ngOnInit() {
   }
 
-  buttonClick( value:Number ){
-    console.log( value )
+  buttonClick( value:number ){
+    this.addCarrotService.changeCarrotAmount( value );
   }
 
 }

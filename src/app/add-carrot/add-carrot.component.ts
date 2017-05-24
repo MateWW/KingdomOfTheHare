@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from "@angular/router";
+
+import { AddCarrotService } from './add-carrot.service';
+
+import { Hare } from '../hare';
 
 @Component({
   selector: 'app-add-carrot',
@@ -7,10 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCarrotComponent implements OnInit {
 
-  private name = "Zyzia";
-  private carrotAmount = 6124;
+  private hare:Hare = { name:'' , carrotAmount:0 }
 
-  constructor() { }
+  constructor( private addCarrotService: AddCarrotService , private route:ActivatedRoute) {
+    this.addCarrotService.getHareStream()
+      .subscribe( (hare:Hare) =>{
+        if(hare)
+          this.hare = hare;
+      });
+    this.resolveLink();
+   }
+  
+  resolveLink(){
+    this.route.params
+      .subscribe( (value)=>{        
+        if( typeof value.name !== 'undefined' ){
+          this.addCarrotService.selectHare( value.name );
+          return;
+        }
+
+        this.addCarrotService.selectHare( "" );
+      });
+  }
 
   ngOnInit() {
   }
