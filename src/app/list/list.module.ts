@@ -5,6 +5,8 @@ import { ListRoutingModule } from './list-routing.module';
 
 import { ListComponent } from './list.component';
 
+import { HareBaseService } from '../hare-base.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,6 +14,9 @@ import { ListComponent } from './list.component';
   ],
   declarations: [
     ListComponent
+  ],
+  providers:[
+    HareBaseService
   ]
 })
 export class ListModule { }

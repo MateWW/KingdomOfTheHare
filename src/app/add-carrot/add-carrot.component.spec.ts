@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddCarrotComponent } from './add-carrot.component';
+import { AddCarrotFormComponent } from './add-carrot-form.component';
 
 describe('AddCarrotComponent', () => {
   let component: AddCarrotComponent;
@@ -8,7 +9,7 @@ describe('AddCarrotComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddCarrotComponent ]
+      declarations: [ AddCarrotComponent, AddCarrotFormComponent ]
     })
     .compileComponents();
   }));
