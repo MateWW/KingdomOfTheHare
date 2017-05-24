@@ -1,18 +1,23 @@
 <section class="row justify-content-center">
   <div class="col-12 col-md-6">
-    <table class="table table-striped mt-3">
-      <tr>
-        <th>#</th>
-        <th>Nazwa</th>
-        <th>Ilość marchewek</th>
-        <th>Usuń</th>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td> A królik </td>
-        <td> 2000 </td>
-        <td> &#x2718; </td>
-      </tr>
+    <table *ngIf="list.length > 0" class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nazwa</th>
+          <th  (click)="changeSortDirectory()"ngClass="active tableheader_button">Ilość marchewek</th>
+          <th>Usuń</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let hare of list ; let i = index" (click)="redirectToDetails(hare.name)">
+          <th scope="row">{{ i }}</th>
+          <td> {{ hare.name }}</td>
+          <td> {{ hare.carrotAmount }} </td>
+          <td (click)="deleteHare(hare.name)"> &#x2718; </td>
+        </tr>
+      </tbody>
     </table>
+    <h3 *ngIf="list.length == 0">Królestwo jest puste </h3>
   </div>
 </section>

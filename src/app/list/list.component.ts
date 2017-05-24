@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Hare } from '../hare';
+
+import { ListControlerService } from './list-controler.service';
+
 
 @Component({
   selector: 'app-list',
@@ -7,9 +12,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  private list:[Hare];
+
+
+  constructor( private listControler:ListControlerService , private router:Router) { 
+  }
 
   ngOnInit() {
+    this.listControler.getSortedListStream()
+      .subscribe( ( sortedList ) =>{
+        this.list = <[Hare]>sortedList;
+      });
+  }
+
+  changeSortDirectory() {
+    this.listControler.changeSortDirectory();
+  }
+
+  deleteHare( name : string){
+    this.listControler.deleteHare(name);
+  }
+
+  redirectToDetails( hareName:string ){
+    this.router.navigate(['/addCarrot', hareName]);
   }
 
 }

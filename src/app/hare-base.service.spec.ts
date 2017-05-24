@@ -51,27 +51,31 @@ describe('HareBaseService', () => {
   it('should add carrots', inject([HareBaseService], (service: HareBaseService) => {
       service.addCarrots("test name",50000000);
       service.addCarrots("test name",2000);
-      let baseString = JSON.parse(localStorage.getItem("hare_base"));    
-
-      expect(baseString[0].carrotAmount).toEqual(50004000);
+      let baseArray = [...JSON.parse(localStorage.getItem("hare_base"))];
+      let testElement = baseArray.find( ( hare ) => ( hare.name == "test name") );
+      expect(testElement.carrotAmount).toEqual(50004000);
   }));
 
    it('should delete carrots', inject([HareBaseService], (service: HareBaseService) => {
-      service.deleteCarrots("test name",50003900);      
-      let baseString = JSON.parse(localStorage.getItem("hare_base"));   
-      expect(baseString[0].carrotAmount).toEqual(100);
+      service.deleteCarrots("test name",50003900);
+      let baseArray = [...JSON.parse(localStorage.getItem("hare_base"))];
+      let testElement = baseArray.find( ( hare ) => ( hare.name == "test name") );   
+      expect(testElement.carrotAmount).toEqual(100);
 
       service.deleteCarrots("test name",99);
-      baseString = JSON.parse(localStorage.getItem("hare_base"));
-      expect(baseString[0].carrotAmount).toEqual(1);
+      baseArray = [...JSON.parse(localStorage.getItem("hare_base"))];
+      testElement = baseArray.find( ( hare ) => ( hare.name == "test name") );   
+      expect(testElement.carrotAmount).toEqual(1);
 
       service.deleteCarrots("test name",1);
-      baseString = JSON.parse(localStorage.getItem("hare_base"));
-      expect(baseString[0].carrotAmount).toEqual(0);
+      baseArray = [...JSON.parse(localStorage.getItem("hare_base"))];
+      testElement = baseArray.find( ( hare ) => ( hare.name == "test name") );   
+      expect(testElement.carrotAmount).toEqual(0);
 
       service.deleteCarrots("test name",1000);
-      baseString = JSON.parse(localStorage.getItem("hare_base"));
-      expect(baseString[0].carrotAmount).toEqual(0);
+      baseArray = [...JSON.parse(localStorage.getItem("hare_base"))];
+      testElement = baseArray.find( ( hare ) => ( hare.name == "test name") );   
+      expect(testElement.carrotAmount).toEqual(0);
   }));
 
 
