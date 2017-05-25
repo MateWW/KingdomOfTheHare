@@ -19,21 +19,21 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Modules
-    The most important:
-        `hare-base` - Heart of project. DataBase File.
+The most important:
+    `hare-base` - Heart of project. DataBase File.
 
-    Controll modules:
-        `list` 
-            - display list of hares. 
-            - delete hare from list
-            - sort hares by carrots 
-            - redirect to add_carrot
+Controll modules:
+`list` 
+    - display list of hares. 
+    - delete hare from list
+    - sort hares by carrots 
+    - redirect to add_carrot
 
-        `add_hare`
-            - add new hare to kingdom of the hare
+`add_hare`
+     - add new hare to kingdom of the hare
         
-        `add_carrot`
-            - change quantity carrots  of selected hare
+ `add_carrot`
+    - change quantity carrots  of selected hare
         
 
 
