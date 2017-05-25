@@ -33,19 +33,22 @@ export class AddCarrotService {
       return false;
 
     let hare = this.hareList.find( (hareObj) => (hareObj.name === this.selectedHareName)  );
-    if(!hare)
+    if(!hare){
       this.router.navigate(["/list"]);
-
+      return false;
+    }
     this.hareStream.next(hare);
+    return true;
 }
 
   getHareStream(){
-    return this.hareStream.startWith(this.hare || false);
+    let emptyHareProfile:Hare = {name:'',carrotAmount:0};
+    return this.hareStream.startWith(this.hare || emptyHareProfile);
   }
 
   selectHare( name:string ){
     this.selectedHareName = name;    
-    this.findHare();
+    return this.findHare();
   }
 
   changeCarrotAmount( amount:number ){

@@ -12,7 +12,7 @@ import { ListControlerService } from './list-controler.service';
 })
 export class ListComponent implements OnInit {
 
-  private list:[Hare];
+  list:[Hare];
 
 
   constructor( private listControler:ListControlerService , private router:Router) { 

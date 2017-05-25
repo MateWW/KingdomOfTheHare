@@ -1,5 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormsModule } from '@angular/forms';
+
+import { AddHareControllerService } from './add-hare-controller.service';
+import { HareBaseService } from '../hare-base.service';
+
 import { AddHareComponent } from './add-hare.component';
 
 describe('AddHareComponent', () => {
@@ -8,7 +13,12 @@ describe('AddHareComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddHareComponent ]
+      imports: [ FormsModule ],
+      declarations: [ AddHareComponent ],
+      providers: [
+        AddHareControllerService,
+        HareBaseService
+      ]
     })
     .compileComponents();
   }));

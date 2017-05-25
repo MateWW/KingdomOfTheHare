@@ -30,7 +30,7 @@ import { AddCarrotService } from './add-carrot.service';
 })
 export class AddCarrotFormComponent implements OnInit {
 
-  private valuesOfButtons:[Number] = [1,2,5,10,20,50];
+  valuesOfButtons:[Number] = [1,2,5,10,20,50];
 
   constructor(private addCarrotService:AddCarrotService) { }
 

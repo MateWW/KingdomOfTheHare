@@ -12,14 +12,14 @@ import { Hare } from '../hare';
 })
 export class AddCarrotComponent implements OnInit {
 
-  private hare:Hare = { name:'' , carrotAmount:0 }
+  hare:Hare = { name:'' , carrotAmount:0 }
 
   constructor( private addCarrotService: AddCarrotService , private route:ActivatedRoute) {
     this.addCarrotService.getHareStream()
       .subscribe( (hare:Hare) =>{
-        if(hare)
           this.hare = hare;
       });
+      
     this.resolveLink();
    }
   
