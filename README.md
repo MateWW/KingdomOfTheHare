@@ -4,21 +4,21 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Modules
 The most important:
-    `hare-base` + Heart of project. DataBase File.
+    `hare-base` * Heart of project. DataBase File.
 
 Controll modules:
 `list` 
-    + display list of hares. 
-    + delete hare from list
-    + sort hares by carrots 
-    + redirect to add_carrot
+    * display list of hares. 
+    * delete hare from list
+    * sort hares by carrots 
+    * redirect to add_carrot
 
 `add_hare`
-     + add new hare to kingdom of the hare
+     * add new hare to kingdom of the hare
         
  `add_carrot`
-    + change quantity carrots  of selected hare
-    
+    * change quantity carrots  of selected hare
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
